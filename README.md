@@ -17,7 +17,7 @@ Forecast Goodwill revenue using economic and organizational factors.
 - Pandas
 - NumPy
 - PyTorch
-- FRED API
+- FRED
 
 ## Results
 
