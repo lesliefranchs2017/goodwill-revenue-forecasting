@@ -1,7 +1,7 @@
 # Goodwill Revenue Forecasting
 
 <p align="center">
-  <img src="./IMG_3014.JPG" width="350">
+  <img src="images/IMG_3014.JPG" width="350">
 </p>
 
 <p align="center">
