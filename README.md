@@ -1,6 +1,12 @@
 # Goodwill Revenue Forecasting
 
-Predicting Goodwill revenue using nonprofit financial data, economic indicators, and machine learning.
+<p align="center">
+  <img src="./IMG_3014.JPG" width="350">
+</p>
+
+<p align="center">
+  <em>Volunteer experience at Goodwill helped inspire and inform this forecasting project.</em>
+</p>
 
 ## Project Overview
 
