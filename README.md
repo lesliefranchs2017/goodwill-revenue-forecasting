@@ -124,11 +124,13 @@ Model performance is measured using:
 
 ---
 
-## Results
+## Key Results
 
-Key findings indicate that organizational size and broader economic conditions have meaningful relationships with Goodwill revenue performance.
-
-The project demonstrates how nonprofit data combined with economic indicators can be used to generate practical forecasting insights.
+- Built forecasting models using 3,000+ observations
+- Integrated IRS Form 990 and FRED economic data
+- Performed feature engineering and data validation
+- Developed PyTorch-based revenue prediction models
+- Identified economic and organizational drivers of nonprofit revenue
 
 ---
 
