@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 print("This is the first look at the data")
 
-csv_path = '/mnt/c/python/project/redo/goodwill_what_fix.csv'
+csv_path = '/mnt/c/python/project/redo/goodwill_14_real_income.csv'
 
 # Load CSV
 df = pd.read_csv(csv_path, encoding="utf-8-sig")
