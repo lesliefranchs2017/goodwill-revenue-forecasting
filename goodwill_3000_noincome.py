@@ -5,11 +5,16 @@ import torch.nn as nn
 import matplotlib.pyplot as plt
 
 print("This is the first look at the data")
+print("                                 ")
+print("                                      ")
+print("making a change for GIT")
 
-csv_path = '/mnt/c/python/project/redo/goodwill_14_real_income.csv'
+csv_path = '/mnt/c/python/project/goodwill_mock_data_3000_revised_noincome.csv'
 
 # Load CSV
 df = pd.read_csv(csv_path, encoding="utf-8-sig")
+print("Look at file and hope for 14 rows")
+print(df)
 
 print("Get the number of rows")
 print(len(df))
@@ -27,7 +32,6 @@ required_cols = [
     'CPI',
     'Unemployment',
     'BarrelOil',
-    'NetIncome',
     'NetAssets'
 ]
 
@@ -47,7 +51,13 @@ for col in required_cols:
 df = df.dropna(subset=required_cols)
 
 # Input and target
-feature_cols = ['Expenses', 'CPI', 'Unemployment', 'BarrelOil', 'NetIncome', 'NetAssets']
+feature_cols = [
+    'Expenses',
+    'CPI',
+    'Unemployment',
+    'BarrelOil',
+    'NetAssets'
+]
 target_col = 'Revenue'
 
 X = df[feature_cols].values.astype(np.float32)
@@ -79,7 +89,7 @@ X_tensor = torch.tensor(X_scaled, dtype=torch.float32)
 y_tensor = torch.tensor(y_scaled, dtype=torch.float32)
 
 # Define model
-model = nn.Linear(in_features=6, out_features=1)
+model = nn.Linear(in_features=5, out_features=1)
 
 # Loss and optimizer
 criterion = nn.MSELoss()
@@ -102,7 +112,7 @@ for epoch in range(epochs):
     optimizer.step()
 
     if (epoch + 1) % 500 == 0:
-        print(f"Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.6f}")
+        print(f"Epoch [{epoch+1}/{epochs}], Loss: {loss.item():.5f}")
 
 # Evaluate
 model.eval()
@@ -132,17 +142,17 @@ with torch.no_grad():
     original_weights = y_std_scalar * (weights_scaled / X_std.flatten())
     original_bias = y_mean_scalar + y_std_scalar * bias_scaled - np.sum(original_weights * X_mean.flatten())
 
-print(f"Intercept: {original_bias:.6f}")
+print(f"Intercept: {original_bias:.5f}")
 print("Slopes (Coefficients):")
 for col, coef in zip(feature_cols, original_weights):
-    print(f"  {col}: {coef:.6f}")
+    print(f"  {col}: {coef:.5f}")
 
 # Predict existing values
 print("\nPredicted Revenue for existing rows:")
 print(y_pred.flatten())
 
 # Predict Revenue from new values
-x_new = np.array([[70000000, 250.142, 5.3, 93, 165591.76, 43309235.5333]], dtype=np.float32)
+x_new = np.array([[70000000, 250.142, 5.3, 93, 43309235.5333]], dtype=np.float32)
 
 # Scale new input
 x_new_scaled = (x_new - X_mean) / X_std
@@ -158,8 +168,7 @@ print(
     f"CPI = {x_new[0][1]}, "
     f"Unemployment = {x_new[0][2]}, "
     f"BarrelOil = {x_new[0][3]}, "
-    f"NetIncome = {x_new[0][4]}, "
-    f"NetAssets = {x_new[0][5]}: "
+    f"NetAssets = {x_new[0][4]}: "
     f"{y_new_pred_value:.2f}"
 )
 
@@ -176,8 +185,7 @@ df_existing = pd.DataFrame({
     "CPI": X[:, 1],
     "Unemployment": X[:, 2],
     "Barrel Oil": X[:, 3],
-    "NetIncome": X[:, 4],
-    "NetAssets": X[:, 5]
+    "NetAssets": X[:, 4]
 })
 
 df_new = pd.DataFrame({
@@ -187,8 +195,7 @@ df_new = pd.DataFrame({
     "CPI": [x_new[0][1]],
     "Unemployment": [x_new[0][2]],
     "Barrel Oil": [x_new[0][3]],
-    "NetIncome": [x_new[0][4]],
-    "NetAssets": [x_new[0][5]],
+    "NetAssets": [x_new[0][4]],
 })
 
 print("\nNew prediction row:")
@@ -197,13 +204,13 @@ print(df_new)
 df_final = pd.concat([df_existing, df_new], ignore_index=True)
 
 # Export to CSV
-output_csv = "/mnt/c/python/project/redo/Revenue_predictions.csv"
+output_csv = "/mnt/c/python/project/csv/Revenue_predictions_3000_noincome.csv"
 df_final.to_csv(output_csv, index=False)
 
 print(f"\nSaved predictions to: {output_csv}")
 
 # Plot actual vs predicted
-plt.figure(figsize=(10, 6))
+plt.figure(figsize=(10, 5))
 plt.plot(range(len(y)), y.flatten(), label='Actual Revenue')
 plt.plot(range(len(y_pred)), y_pred.flatten(), label='Predicted Revenue')
 plt.xlabel("Row Index")
@@ -214,8 +221,6 @@ plt.grid(True)
 plt.show()
 
 
-
-
 import statsmodels.api as sm
 
 # Features
@@ -223,7 +228,6 @@ X_sm = df[['Expenses',
            'CPI',
            'Unemployment',
            'BarrelOil',
-           'NetIncome',
            'NetAssets']]
 
 # Add intercept
@@ -237,4 +241,3 @@ model_sm = sm.OLS(y_sm, X_sm).fit()
 
 # Full summary
 print(model_sm.summary())
-
