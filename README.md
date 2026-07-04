@@ -1,182 +1,113 @@
-# Goodwill Revenue Forecasting
+# Linear Regression Revenue Forecasting
 
-<p align="center">
-  <img src="images/IMG_3014.JPG" width="350">
-</p>
+## Overview
 
-<p align="center">
-  <em>Volunteer experience at Goodwill helped inspire and inform this forecasting project.</em>
-</p>
+This project focuses on developing a transparent and interpretable linear regression model for forecasting annual organizational revenue.
 
-## Project Overview
-
-This project analyzes and forecasts Goodwill revenue using:
-
-- IRS Form 990 nonprofit financial data
-- Federal Reserve Economic Data (FRED)
-- Python data engineering and ETL processes
-- Statistical analysis
-- PyTorch machine learning models
-
-The goal is to understand which factors most influence Goodwill revenue and develop predictive models that can assist nonprofit organizations with planning, budgeting, and strategic decision-making.
+Unlike deep learning approaches, this implementation emphasizes statistical explainability and coefficient interpretation.
 
 ---
 
-## Business Problem
+## Objectives
 
-Goodwill organizations operate in a dynamic environment influenced by:
-
-- Economic conditions
-- Employment levels
-- Inflation
-- Donations
-- Retail sales activity
-
-Understanding how these factors impact revenue can improve forecasting accuracy and support operational planning.
+- Build an interpretable forecasting model
+- Measure statistical significance
+- Compare classical regression with neural networks
+- Demonstrate feature engineering techniques
 
 ---
 
 ## Data Sources
 
-### IRS Form 990
+IRS Form 990
 
-Public nonprofit filings providing:
+Federal Reserve Economic Data (FRED)
 
-- Revenue
-- Expenses
-- Assets
-- Program information
-- Organizational characteristics
-
-### Federal Reserve Economic Data (FRED)
-
-Economic indicators including:
-
-- Consumer Price Index (CPI)
+- CPI
 - Unemployment Rate
-- Economic trends
-- Consumer activity measures
+- Brent Oil Prices
 
 ---
 
-## Project Architecture
-
-IRS Form 990 Data
-        |
-        v
-Python ETL
-        |
-        v
-Data Cleaning & Validation
-        |
-        +-----> Statistical Analysis
-        |
-        +-----> Feature Engineering
-        |
-        +-----> PyTorch Modeling
-        |
-        v
-Revenue Forecasting
-
----
-
-## Technology Stack
-
-### Languages
+## Technology
 
 - Python
-- SQL
-
-### Libraries
-
 - Pandas
 - NumPy
+- Statsmodels
 - Scikit-Learn
-- PyTorch
 - Matplotlib
 
-### Tools
+---
 
-- Git
-- GitHub
-- Visual Studio Code
+## Workflow
+
+Data Collection
+
+↓
+
+Cleaning
+
+↓
+
+Feature Engineering
+
+↓
+
+Train/Test Split
+
+↓
+
+OLS Regression
+
+↓
+
+Model Validation
 
 ---
 
-## Machine Learning
-
-The project evaluates multiple approaches including:
-
-- Linear Regression
-- Feature Importance Analysis
-- Neural Network Forecasting using PyTorch
-
-Model performance is measured using:
+## Statistical Evaluation
 
 - R²
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
+- Adjusted R²
+- t-Statistics
+- p-values
+- RMSE
 
 ---
 
-## Data Engineering Highlights
+## Engineering Practices
 
-- ETL development in Python
-- Data cleansing and validation
-- Feature engineering
-- Dataset integration
-- Missing value handling
-- Model-ready dataset creation
-
----
-
-## Key Results
-
-- Built forecasting models using 3,000+ observations
-- Integrated IRS Form 990 and FRED economic data
-- Performed feature engineering and data validation
-- Developed PyTorch-based revenue prediction models
-- Identified economic and organizational drivers of nonprofit revenue
-
----
-
-## Goodwill Volunteer Experience
-
-As a Goodwill volunteer for approximately 1.5 years, I gained firsthand exposure to:
-
-- Donation operations
-- Retail workflows
-- Community impact initiatives
-
-This experience provided additional context for interpreting the data and understanding the business processes behind the financial results.
+- Reproducible train/test split
+- Target leakage prevention
+- Data validation
+- Version control
+- Modular Python code
 
 ---
 
 ## Repository Contents
 
-| File | Description |
-|--------|-------------|
-| *.py | Python ETL and modeling scripts |
-| *.csv | Data files used for analysis |
-| README.md | Project documentation |
+- Python code
+- Statistical output
+- Project presentation
+- Documentation
+- Images
 
 ---
 
-## Future Enhancements
+## Skills Demonstrated
 
-- Additional economic indicators
-- Time-series forecasting models
-- State-level Goodwill analysis
-- Donation forecasting
-- Interactive dashboards
+- Python
+- SQL
+- Feature Engineering
+- Linear Regression
+- Statistical Modeling
+- Data Validation
+- Machine Learning Fundamentals
 
 ---
 
 ## Author
 
 Leslie Franchs
-
-Data Engineer | Analytics | Machine Learning
-
-GitHub:
-https://github.com/lesliefranchs2017/goodwill-revenue-forecasting
