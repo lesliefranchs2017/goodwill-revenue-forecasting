@@ -1,113 +1,192 @@
-# Linear Regression Revenue Forecasting
+# Revenue Forecasting Platform
+### Comparative Machine Learning Using TensorFlow and PyTorch
 
 ## Overview
 
-This project focuses on developing a transparent and interpretable linear regression model for forecasting annual organizational revenue.
+This project demonstrates the design and implementation of an end-to-end revenue forecasting platform using Python, TensorFlow, and PyTorch.
 
-Unlike deep learning approaches, this implementation emphasizes statistical explainability and coefficient interpretation.
+Beginning with publicly available financial and economic data, the project follows a complete data engineering workflow including data acquisition, cleaning, validation, feature engineering, model development, evaluation, and business interpretation.
+
+The same forecasting problem was independently implemented using both TensorFlow and PyTorch to compare predictive performance, training behavior, and framework implementation.
 
 ---
 
-## Objectives
+## Business Problem
 
-- Build an interpretable forecasting model
-- Measure statistical significance
-- Compare classical regression with neural networks
-- Demonstrate feature engineering techniques
+Can publicly available financial and economic information be used to forecast organizational revenue?
+
+To answer this question, a complete forecasting platform was developed using machine learning techniques and modern data engineering practices.
 
 ---
 
 ## Data Sources
 
-IRS Form 990
+The project combines multiple public data sources including:
 
-Federal Reserve Economic Data (FRED)
+- IRS Form 990 Financial Data
+- Consumer Price Index (CPI)
+- U.S. Unemployment Rate
+- Crude Oil Prices
+- Organizational Net Assets
 
-- CPI
-- Unemployment Rate
-- Brent Oil Prices
+A synthetic dataset containing **3,000 observations** was generated for model training and evaluation.
 
 ---
 
-## Technology
+# Project Workflow
+
+```
+Public Financial Data
+          │
+          ▼
+ Data Cleaning & Validation
+          │
+          ▼
+ Feature Engineering
+          │
+          ▼
+ Machine Learning
+      ┌──────────────┐
+      ▼              ▼
+ TensorFlow      PyTorch
+      └──────┬───────┘
+             ▼
+ Model Evaluation
+             ▼
+ Revenue Prediction
+             ▼
+ Business Interpretation
+```
+
+---
+
+# Technologies
 
 - Python
+- TensorFlow
+- PyTorch
 - Pandas
 - NumPy
-- Statsmodels
 - Scikit-Learn
+- Statsmodels
 - Matplotlib
 
 ---
 
-## Workflow
+# Machine Learning Models
 
-Data Collection
+## TensorFlow
 
-↓
+- Sequential Neural Network
+- Hidden Layers: 16 → 8 → 1
+- Adam Optimizer
+- Mean Squared Error (MSE)
 
-Cleaning
+## PyTorch
 
-↓
+- Feedforward Neural Network
+- Hidden Layers: 16 → 8 → 1
+- Adam Optimizer
+- Mean Squared Error (MSE)
 
-Feature Engineering
+Both implementations used:
 
-↓
-
-Train/Test Split
-
-↓
-
-OLS Regression
-
-↓
-
-Model Validation
-
----
-
-## Statistical Evaluation
-
-- R²
-- Adjusted R²
-- t-Statistics
-- p-values
-- RMSE
+- 3,000 observations
+- Five input features
+- 80/20 Train/Test Split
+- Standardized input variables
+- Independent evaluation using held-out test data
 
 ---
 
-## Engineering Practices
+# Results
 
-- Reproducible train/test split
-- Target leakage prevention
-- Data validation
-- Version control
-- Modular Python code
-
----
-
-## Repository Contents
-
-- Python code
-- Statistical output
-- Project presentation
-- Documentation
-- Images
+| Metric | PyTorch | TensorFlow |
+|---------|---------:|-----------:|
+| Dataset | 3,000 | 3,000 |
+| Training Rows | 2,400 | 2,400 |
+| Testing Rows | 600 | 600 |
+| Features | 5 | 5 |
+| Optimizer | Adam | Adam |
+| Hidden Layers | 16 → 8 → 1 | 16 → 8 → 1 |
+| Test MAE | $2.07M | $2.19M |
+| Test RMSE | $2.61M | $2.76M |
+| Test R² | **0.9691** | **0.9656** |
+| Training Time | **18.9 sec** | **71.3 sec** |
+| Future Revenue Prediction | $68.36M | $58.21M |
 
 ---
 
-## Skills Demonstrated
+# Key Findings
+
+- Successfully built an end-to-end revenue forecasting platform.
+- Implemented the same forecasting problem using both TensorFlow and PyTorch.
+- Both models achieved excellent predictive performance with **R² values above 0.96**.
+- In this CPU-based experiment, PyTorch completed training approximately **3.8× faster** than TensorFlow.
+- Future revenue predictions differed by approximately **15–17%**, illustrating that independently trained neural networks can converge to different—but equally reasonable—solutions while maintaining similar predictive accuracy.
+
+---
+
+# Skills Demonstrated
+
+### Data Engineering
+
+- Data Acquisition
+- ETL
+- Data Cleaning
+- Data Validation
+- Feature Engineering
+- Predictive Analytics
+
+### Machine Learning
+
+- TensorFlow
+- PyTorch
+- Neural Networks
+- Model Evaluation
+- Performance Metrics
+
+### Programming
 
 - Python
+- Pandas
+- NumPy
 - SQL
-- Feature Engineering
-- Linear Regression
-- Statistical Modeling
-- Data Validation
-- Machine Learning Fundamentals
+- Scikit-Learn
+- Statsmodels
 
 ---
 
-## Author
+# Repository Contents
 
-Leslie Franchs
+- TensorFlow Implementation
+- PyTorch Implementation
+- Revenue Forecast Dataset
+- Presentation Slides
+- Architecture Diagrams
+- Project Documentation
+
+---
+
+# Future Enhancements
+
+- Additional historical financial data
+- Hyperparameter tuning
+- Cross-validation
+- Additional forecasting algorithms
+- GPU performance comparison
+- Interactive dashboard
+
+---
+
+# About the Author
+
+**Leslie Franchs**
+
+Master of Economics
+
+Senior Data Migration & Integration Engineer
+
+SQL Developer | Data Engineer | Machine Learning Portfolio Project
+
+This project demonstrates how modern data engineering practices and machine learning can be combined to solve real-world business forecasting problems while comparing two leading deep learning frameworks under comparable experimental conditions.
